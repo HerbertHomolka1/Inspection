@@ -1,0 +1,277 @@
+ScreenManager:
+
+    MainScreen:
+    Screen2:
+    Screen3:
+
+<Screen3>:
+    name:'Screen3'
+    Button:
+        text: 'Close App'
+        on_press: root.close_app_now()
+
+<MainScreen>:
+    name: 'MainScreen'
+
+    MDBoxLayout:
+        pos: (root.width*0.05,root.height*0.85)
+        size_hint: (0.9,0.1)
+
+        canvas:
+            Color:
+                rgba: 0.5, 0.4, 0.2, 0.3
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [20]
+
+        MDLabel:
+            text: 'Cell Stack Disembly'
+            font_size: 24
+            halign: 'center'
+
+    MDBoxLayout:
+        id: second_box
+        pos: (root.width*0.05,root.height*0.03)
+        size_hint: (0.9,0.77)
+        orientation: 'vertical'
+        spacing: dp(30)
+        padding: [0,0,0,40]
+        halign: 'top'
+
+        canvas:
+            Color:
+                rgba: 0.5, 0.4, 0.2, 0.3
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [20]
+
+        MDTextField:
+            id: shop_order
+
+            size_hint_x: 0.95
+            pos_hint: {'center_x':0.5}
+            hint_text: "Shop Order"
+
+            mode: "rectangle"
+
+            line_color_focus: 1, 1, 0.3, 1
+            hint_text_color_focus: 1, 1, 0.3, 1
+
+            line_color_normal: app.theme_cls.accent_color
+            hint_text_color_normal: app.theme_cls.accent_color
+
+            max_text_length: 5
+
+        MDTextField:
+            id: cell_number
+            size_hint_x: 0.95
+            pos_hint: {'center_x':0.5}
+            hint_text: "Number of cells"
+            mode: "rectangle"
+
+            line_color_focus: 1, 1, 0.3, 1
+            hint_text_color_focus: 1, 1, 0.3, 1
+
+            line_color_normal: app.theme_cls.accent_color
+            hint_text_color_normal: app.theme_cls.accent_color
+
+     
+
+        MDTextField:
+            id: operator
+            size_hint_x: 0.95
+            pos_hint: {'center_x':0.5}
+            hint_text: "Operator"
+            mode: "rectangle"
+
+            line_color_focus: 1, 1, 0.3, 1
+            hint_text_color_focus: 1, 1, 0.3, 1
+
+            line_color_normal: app.theme_cls.accent_color
+            hint_text_color_normal: app.theme_cls.accent_color
+
+        MDBoxLayout:
+            adaptive_size: True
+            spacing: "12dp"
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+            MDRectangleFlatButton:
+                id: english
+                text: "English"
+
+
+            MDRectangleFlatButton:
+                id: dutch
+                text: "Dutch"
+                on_press:
+                    root.dirdir()
+
+
+
+        MDRectangleFlatButton:
+
+            text: ' Start'
+            pos_hint: {'center_x':0.5}
+
+            on_press: root.next_screen(shop_order.text, cell_number.text, operator.text)
+
+
+
+
+
+<MyButton>:
+
+
+
+
+<Screen2>:
+    name: 'Screen2'
+
+    BoxLayout:
+
+        orientation: "vertical"
+        Label:
+            size_hint_y:0.1
+            text: str(root.cell_counter)
+
+        ScrollView:
+            GridLayout:
+                padding: [10,10]
+                spacing: 2
+                orientation:'lr-tb'
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: 60
+                cols:1
+
+
+
+                MyButton:
+                    size_hint: (1,1)
+#
+                    text_size: self.width - dp(10), self.height - dp(10)
+                    text: '1'
+                    md_bg_color:(0,0,0,1)
+                MyButton:
+                    size_hint: (1,1)
+                    text_size: self.width - dp(10), self.height - dp(10)
+                    text: '2'
+                    md_bg_color:(0,0,0,1)
+                MyButton:
+                    size_hint: (1,1)
+                    size: root.width,60
+                    text:  '3'
+                    md_bg_color:(0,0,0,1)
+                MyButton:
+                    size_hint: (1,1)
+                    size: root.width,60
+                    text:   '4'
+                    md_bg_color:(0,0,0,1)
+                MyButton:
+                    size: root.width,60
+                    text: '5'
+                    size_hint: (1,1)
+                    md_bg_color:(0,0,0,1)
+                MyButton:
+                    size: root.width,60
+                    text: '6'
+                    md_bg_color:(0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text: '7'
+                    md_bg_color:(0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text:  '8'
+                    md_bg_color:(0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text:      '9'
+                    md_bg_color:(0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text: '10'
+                    md_bg_color:(0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text: '11'
+                    size_hint: (1,1)
+                    md_bg_color:(0,0,0,1)
+                MyButton:
+                    size: root.width,60
+                    text:  '12'
+                    md_bg_color:(0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text:     '13'
+                    md_bg_color:(0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text: '14'
+                    md_bg_color:(0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text:  '15'
+                    md_bg_color: (0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text: '16'
+                    md_bg_color:(0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text: '17'
+                    md_bg_color:(0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text:  '18'
+                    md_bg_color: (0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text:  '19'
+                    size_hint: (1,1)
+                    md_bg_color:(0,0,0,1)
+                MyButton:
+                    size: root.width,60
+                    text:    '20'
+                    md_bg_color:(0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text:   '21'
+                    md_bg_color:(0,0,0,1)
+                    size_hint: (1,1)
+                MyButton:
+                    size: root.width,60
+                    text:'22'
+                    size_hint: (1,1)
+                    md_bg_color:(0,0,0,1)
+                MyButton:
+                    size: root.width,60
+                    text: '23'
+                    md_bg_color:(0,0,0,1)
+                    size_hint:  (1,1)
+        BoxLayout:
+            size_hint: 1,.1
+            orientation: "horizontal"
+            Button:
+                text:"Previous"
+                on_press: root.go_to_previous_cell()
+
+
+            Button:
+                text:"Next"
+                on_press: root.go_to_next_cell()
